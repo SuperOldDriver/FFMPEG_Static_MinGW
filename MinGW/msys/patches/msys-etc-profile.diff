@@ -1,0 +1,32 @@
+2011-11-1 Earnie Boyd <earnie@users.sourceforge.net>
+	* dvlpr/etc/profile: Move the execution of profile.d/*.sh as last step.
+Index: dvlpr/etc/profile
+===================================================================
+RCS file: /cvsroot/mingw/msys/dvlpr/etc/profile,v
+retrieving revision 1.5
+diff -u -p -r1.5 profile
+--- dvlpr/etc/profile	13 May 2009 01:08:03 -0000	1.5
++++ dvlpr/etc/profile	1 Nov 2011 15:04:08 -0000
+@@ -43,12 +43,6 @@ fi
+ 
+ export HOME LOGNAME MSYSTEM HISTFILE
+ 
+-for i in /etc/profile.d/*.sh ; do
+-  if [ -f $i ]; then
+-    . $i
+-  fi
+-done
+-
+ export MAKE_MODE=unix
+ export PS1='\[\033]0;$MSYSTEM:\w\007
+ \033[32m\]\u@\h \[\033[33m\w\033[0m\]
+@@ -58,3 +52,9 @@ alias clear=clsb
+ 
+ cd "$HOME"
+ 
++for i in /etc/profile.d/*.sh ; do
++  if [ -f $i ]; then
++    . $i
++  fi
++done
++

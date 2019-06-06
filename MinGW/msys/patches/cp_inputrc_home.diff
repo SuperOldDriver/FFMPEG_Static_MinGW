@@ -1,0 +1,12 @@
+--- profile.old	2012-02-28 08:34:57 +0000
++++ profile	2012-02-28 08:35:53 +0000
+@@ -34,6 +34,9 @@
+ 
+ if [ ! -d "$HOME" ]; then
+   mkdir -p "$HOME"
++fi
++
++if [ ! -e "$HOME"/.inputrc ]; then
+   cp /etc/inputrc.default "$HOME"/.inputrc
+ fi
+ 
